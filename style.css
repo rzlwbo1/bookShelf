@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('images/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+body, input, button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+input, button {
+    font-size: 16px;
+}
+
+.green {
+    background-color: lightgreen;
+    border: none;
+}
+
+.green:hover {
+    background-color: rgb(82, 236, 82);
+}
+
+.red {
+    background-color: #ff2a2a;
+    border: none;
+}
+
+.red:hover {
+    background-color: #ff8080;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    padding: 1rem;
+}
+
+.containerBookShelf {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.container h1 {
+    margin-bottom: 1.2rem;
+    color: white;
+    font-size: 42px;
+    text-shadow: 0 2px #000;
+}
+
+.inputFieldContainer {
+    border: 2px solid rgba(201, 201, 201, 0.486);
+    padding: 1.6em;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.822);
+    transition: all 500ms;
+}
+
+.inputFieldContainer:hover {
+    box-shadow: 5px 15px 25px rgba(78, 78, 78, 0.603);
+    border: 2px solid rgb(134, 134, 134);
+    background-color: white;
+}
+
+.inputFieldContainer h2 {
+    margin-bottom: 1rem;
+}
+
+#inputForm > div {
+    margin-bottom: 0.5rem;
+}
+
+#inputForm label {
+    font-weight: bold;
+}
+
+#inputForm label:not(.inline-check){
+
+    display: block;
+    margin-bottom: 0.5rem;
+
+}
+
+#inputForm div > input:not(#checkedBook){
+    width: 100%;
+    padding: 5px 10px;
+}
+
+button {
+    padding: 4px 16px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.search-field {
+    margin: 15px 0;
+}
+
+.search-field h3 {
+    margin: 10px 0;
+}
+
+.search-field input {
+    width: 60%;
+    padding: 5px 10px;
+    float: left;
+}
+
+.search-field button {
+    width: 36%;
+    margin-left: 1rem;
+    display: inline-block;
+}
+
+.clearfix {
+    clear: both;
+    display: block;
+}
+
+
+.bookShelf {
+    margin-top: 10px;
+    border: 2px solid rgba(201, 201, 201, 0.486);
+    padding: 0.8em;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.822);
+}
+
+.book-item {
+    border: 2px solid rgb(75, 75, 75);
+    margin: 10px 0;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.book-item .action {
+    margin-top: 7px;
+    display: flex;
+    gap: 10px;
+}
+

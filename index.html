@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Bookshelf</title>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>BookShelf</h1>
+
+    <div class="containerBookShelf">
+      <div class="inputFieldContainer">
+        <h2>Masukan Buku Baru kamu Disini..</h2>
+        <form id="inputForm">
+          <div>
+            <label>Judul</label>
+            <input type="text" id="judul" required autofocus>
+          </div>
+  
+          <div>
+            <label>Penulis</label>
+            <input type="text" id="penulis" required>
+          </div>
+  
+          <div>
+            <label>Tahun</label>
+            <input type="number" id="tahun" required>
+          </div>
+  
+          <div>
+            <label class="inline-check">Selesai dibaca ?</label>
+            <input type="checkbox" id="checkedBook">
+          </div>
+
+          <button id="bookSubmit" type="submit">Masukkan Buku ke rak</button>
+        </form>
+
+        <div class="search-field">
+          <h3>Cari Buku kamu disini yaa</h3>
+          <input type="search" id="searchBookInput" placeholder="Cari buku disini..">
+          <button type="submit" id="searchBtn">Cari</button>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <div class="bookShelfWrapper">
+        <div class="bookShelf">
+          <h3>Belum selesai dibaca</h3>
+  
+          <div id="belumSelesaiBook" class="book-list">
+          </div>
+        </div>
+  
+        <div class="bookShelf">
+          <h3>Sudah selesai dibaca</h3>
+  
+          <div id="sudahSelesaiBook" class="book-list"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+
+  <script src="main.js"></script>
+</body>
+</html>
