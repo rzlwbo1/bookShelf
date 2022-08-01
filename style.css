@@ -149,3 +149,33 @@ button {
     gap: 10px;
 }
 
+
+@media only screen and (max-width: 767.98px) {
+
+    .containerBookShelf {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 80%;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .search-field input {
+        width: 100%;
+        padding: 5px 10px;
+        float: none;
+    }
+
+    .search-field input::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+    
+    .search-field button {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+    }
+    
+
+}

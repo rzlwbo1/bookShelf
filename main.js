@@ -64,11 +64,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if(searchedBook != null) {
 
-      let bookElem = makeBook(searchedBook);
-      if(searchedBook.isComplete == true) {
-        rakSudahSelesai.append(bookElem);
-      } else {
-        rakBelumSelesai.append(bookElem);
+      console.log(searchedBook);
+
+      for (const book of searchedBook) {
+
+        let bookElem = makeBook(book);
+        if(book.isComplete == true) {
+          rakSudahSelesai.append(bookElem);
+        } else {
+          rakBelumSelesai.append(bookElem);
+        }
+
       }
 
     } else {
@@ -221,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const foundBook = searchBook(inputSearch.value);
 
-      console.log(foundBook);
+      // console.log(foundBook);
       searchedBook = foundBook;
 
       document.dispatchEvent(new Event(RENDER_EVENT));
@@ -234,7 +240,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function searchBook(titleBook) {
 
-    return books.find((book) => book.title == titleBook);
+    // return books.find((book) => book.title == titleBook);
+
+    const result = books.filter((book) => {
+      // Kita lowercase semua agar case menjadi sama,
+      // Sehingga hasil pencarian menjadi ignoring case.
+      const bookTitle = book.title.toLowerCase();
+      const searchKeyword = titleBook.toLowerCase();
+  
+      return bookTitle.includes(searchKeyword);
+    });
+
+    return result;
 
   }
 
