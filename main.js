@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.dispatchEvent(new Event(RENDER_EVENT));
 
+    // Save data
+    saveData();
+
   });
 
   function generateID() {
@@ -163,6 +166,9 @@ document.addEventListener('DOMContentLoaded', function() {
     book.isComplete = true;
 
     document.dispatchEvent(new Event(RENDER_EVENT));
+    
+    // Save data
+    saveData();
 
   }
 
@@ -174,6 +180,9 @@ document.addEventListener('DOMContentLoaded', function() {
     book.isComplete = false;
 
     document.dispatchEvent(new Event(RENDER_EVENT));
+
+    // Save data
+    saveData();
 
   }
 
@@ -190,6 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
     books.splice(bookIndex, 1);
 
     document.dispatchEvent(new Event(RENDER_EVENT));
+
+    // Save data
+    saveData();
 
   }
 
@@ -224,6 +236,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
     return books.find((book) => book.title == titleBook);
 
+  }
+
+  function isStorageExist() {
+
+    if(typeof(Storage) === undefined) {
+
+      alert('Tidak mendukung web storage!!');
+
+      return false;
+
+    }
+
+    return true;
+
+  }
+
+  function saveData() {
+
+    if(isStorageExist()) {
+
+      const parsed = JSON.stringify(books);
+      localStorage.setItem(BOOKS_KEY, parsed);
+      
+      // document.dispatchEvent(new Event(SAVED_EVENT))
+
+    }
+
+  }
+
+  function loadDataFromStorage() {
+    const serializedData = localStorage.getItem(BOOKS_KEY);
+    let datas = JSON.parse(serializedData);
+   
+    if (datas != null) {
+      for (const book of datas) {
+        books.push(book);
+      } 
+    }
+   
+    document.dispatchEvent(new Event(RENDER_EVENT));
+  }
+
+  if(isStorageExist()) {
+    loadDataFromStorage();
   }
 
 })
